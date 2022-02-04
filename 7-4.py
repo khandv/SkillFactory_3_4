@@ -91,7 +91,7 @@ tutorial_start_df_wo_duplicates = tutorial_start_df.sort_values('start_time').dr
 tutorial_start_df_wo_duplicates = tutorial_start_df_wo_duplicates[['user_id', 'tutorial_id', 'start_time']]. \
     rename(columns={'start_time': 'tutorial_start_time'})
 
-'''Объединztv между собой данные двух получившихся датафреймов: registration_df и tutorial_start_df_wo_duplicates.'''
+'''Объединяем между собой данные двух получившихся датафреймов: registration_df и tutorial_start_df_wo_duplicates.'''
 merged_df = registration_df.merge(tutorial_start_df_wo_duplicates, on='user_id', how='inner')
 
 '''Сделаем столбец timedelta, в котором посчитаем разницу между временем начала обучения tutorial_start_time и 
@@ -189,6 +189,8 @@ print(120 * '=')
 levels = list(total_events_df['selected_level'].unique())
 levels.pop(0)
 
+print('Самостоятельная работа')
+print(25 * '-')
 '''Легкий уровень'''
 user_id_easy_level = total_events_df[total_events_df['selected_level'] == 'easy']['user_id'].unique()
 easy_level_df_purchase = purchase_df[purchase_df['user_id'].isin(user_id_easy_level)]
